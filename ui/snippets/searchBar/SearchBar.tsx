@@ -45,7 +45,13 @@ const SearchBar = ({ isHomepage }: Props) => {
 
   const recentSearchKeywords = getRecentSearchKeywords();
 
-  const { searchTerm, debouncedSearchTerm, handleSearchTermChange, query, pathname } = useQuickSearchQuery();
+  const {
+    searchTerm,
+    handleSearchTermChange,
+    query,
+    pathname,
+    queryMapping,
+  } = useQuickSearchQuery();
 
   const handleSubmit = React.useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -162,7 +168,7 @@ const SearchBar = ({ isHomepage }: Props) => {
                 { searchTerm.trim().length > 0 && (
                   <SearchBarSuggest
                     query={ query }
-                    searchTerm={ debouncedSearchTerm }
+                    searchTerm={ queryMapping.data?.data?.xvmHash ?? searchTerm }
                     onItemClick={ handleItemClick }
                     containerId={ SCROLL_CONTAINER_ID }
                   />

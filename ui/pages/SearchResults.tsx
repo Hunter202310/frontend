@@ -28,7 +28,13 @@ import useSearchQuery from 'ui/snippets/searchBar/useSearchQuery';
 
 const SearchResultsPageContent = () => {
   const router = useRouter();
-  const { query, redirectCheckQuery, searchTerm, debouncedSearchTerm, handleSearchTermChange } = useSearchQuery();
+  const {
+    query,
+    redirectCheckQuery,
+    searchTerm,
+    debouncedSearchTerm,
+    handleSearchTermChange,
+  } = useSearchQuery();
   const { data, isError, isPlaceholderData, pagination } = query;
   const [ showContent, setShowContent ] = React.useState(false);
 

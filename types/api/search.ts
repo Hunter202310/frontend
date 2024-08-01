@@ -110,3 +110,24 @@ export interface SearchRedirectResult {
   redirect: boolean;
   type: 'address' | 'block' | 'transaction' | 'user_operation' | 'blob' | null;
 }
+
+export interface SearchMapping {
+  code: number;
+  data?: {
+    id: number;
+    xFromAddress: string;
+    xToAddress: string;
+    xvmHash: string;
+    btcHash: string;
+    logIndex: number;
+  };
+  errorMessage: string;
+}
+export interface SearchAddressMapping {
+  code: number;
+  data?: {
+    xvmAddress: string;
+    btcAddress: string;
+  };
+  errorMessage: string;
+}
